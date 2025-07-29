@@ -1,0 +1,889 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #ffd700;
+}
+
+/* Hero Content */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+/* Stress Meter */
+.stress-meter {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.stress-scale {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stress-btn {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stress-btn:hover, .stress-btn.active {
+    background: #ffd700;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+/* Sections */
+.section {
+    padding: 5rem 0;
+    background: white;
+}
+
+.section:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+/* Breathing Section */
+.breathing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.breathing-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.breathing-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 4s ease;
+}
+
+.breathing-circle.inhale::before {
+    width: 280px;
+    height: 280px;
+}
+
+.breathing-circle.exhale::before {
+    width: 100px;
+    height: 100px;
+}
+
+.breathing-text {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    z-index: 10;
+}
+
+.breathing-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.breathing-patterns {
+    text-align: center;
+}
+
+.breathing-patterns h3 {
+    margin-bottom: 1rem;
+}
+
+.pattern-btn {
+    margin: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pattern-btn.active, .pattern-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Activities Section */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.activity-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+.activity-card h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Bubble Container */
+.bubble-container {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border: 2px dashed #667eea;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #f0f8ff, #e6f3ff);
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(102, 126, 234, 0.6));
+    cursor: pointer;
+    animation: floatUp 3s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* Punching Bag */
+.punch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.punching-bag {
+    width: 100px;
+    height: 150px;
+    background: #8B4513;
+    border-radius: 50px 50px 20px 20px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    margin-bottom: 1rem;
+}
+
+.punching-bag:hover {
+    transform: scale(1.05);
+}
+
+.punching-bag.punch {
+    transform: rotate(10deg);
+    background: #A0522D;
+}
+
+.bag-face {
+    font-size: 2rem;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.punch-counter {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Scream Button */
+.scream-container {
+    position: relative;
+}
+
+.scream-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.scream-button:hover {
+    transform: scale(1.1);
+}
+
+.scream-button:active {
+    transform: scale(0.95);
+}
+
+.scream-waves {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+    border: 3px solid #ff6b6b;
+    border-radius: 50%;
+    animation: waveExpand 1s ease-out forwards;
+}
+
+@keyframes waveExpand {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+        top: -150px;
+        left: -150px;
+    }
+}
+
+/* Zen Garden */
+.zen-canvas {
+    border: 2px solid #8B4513;
+    border-radius: 10px;
+    background: #F5DEB3;
+    cursor: crosshair;
+    margin-bottom: 1rem;
+}
+
+/* Journal Section */
+.journal-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.journal-prompts h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.prompt-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border: none;
+    background: #f8f9fa;
+    color: #333;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prompt-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.journal-input textarea {
+    width: 100%;
+    height: 300px;
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+.journal-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.saved-entries {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+}
+
+.entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.journal-entry {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.entry-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.entry-content {
+    color: #333;
+}
+
+/* Sounds Section */
+.sounds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sound-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.sound-card:hover {
+    transform: translateY(-5px);
+}
+
+.sound-card.playing {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.sound-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.sound-toggle {
+    padding: 0.8rem 2rem;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sound-card.playing .sound-toggle {
+    background: white;
+    color: #667eea;
+}
+
+.volume-control {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.volume-control input {
+    width: 300px;
+    margin-left: 1rem;
+}
+
+/* Progress Section */
+.progress-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .stress-scale {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .journal-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .breathing-circle {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.pulse {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+.stress-ball-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stress-ball {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ff9ff3, #f368e0, #da2c87);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stress-ball:hover {
+    transform: scale(1.05);
+}
+
+.stress-ball.squeezing {
+    transform: scale(0.8);
+    background: radial-gradient(circle at 30% 30%, #ff6b9d, #c44569, #a52a4a);
+}
+
+.ball-texture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.1) 2deg,
+        transparent 4deg,
+        transparent 8deg
+    );
+}
+
+.squeeze-indicator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.squeeze-instructions {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+.squeeze-counter {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* New Game Styles - Frustration Destroyer */
+.destroyer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.destroyer-game {
+    position: relative;
+    width: 100%;
+}
+
+.target-area {
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(45deg, #ff9a56, #ff6b35);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+    border: 3px solid #333;
+    margin: 0 auto 1rem;
+}
+
+.crosshair {
+    position: absolute;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    transition: all 0.1s ease;
+}
+
+.frustration-target {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff4757, #c44569);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    animation: targetFloat 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
+}
+
+.frustration-target:hover {
+    transform: scale(1.1);
+}
+
+@keyframes targetFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+.explosion {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #feca57, #ff9ff3, #ff6b6b);
+    animation: explode 0.5s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.destroyer-score {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* Enhanced Audio Controls */
+.audio-master-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.master-volume {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.master-volume input[type="range"] {
+    width: 150px;
+}
+
+.sound-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.sound-card.playing .progress-bar {
+    animation: audioProgress 2s linear infinite;
+}
+
+@keyframes audioProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Volume Display Enhancement */
+#volumeDisplay {
+    min-width: 40px;
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* Enhanced Progress Dashboard */
+.progress-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Responsive Updates */
+@media (max-width: 768px) {
+    .audio-master-controls {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .target-area {
+        width: 250px;
+        height: 150px;
+    }
+    
+    .stress-ball {
+        width: 120px;
+        height: 120px;
+    }
+}
+

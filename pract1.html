@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrustrateFree (F2) - Find Your Calm</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">🧘 FrustrateFree (F2)</h1>
+                <ul class="nav-menu">
+                    <li><a href="#breathing">Breathing</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#journal">Journal</a></li>
+                    <li><a href="#sounds">Sounds</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        
+        
+        <div class="hero-content">
+            <h2 class="hero-title">Take a Deep Breath</h2>
+            <p class="hero-subtitle">Your personal space for stress relief and mental wellness</p>
+            <div class="stress-meter">
+                <p>How frustrated are you right now?</p>
+                <div class="stress-scale">
+                    <button class="stress-btn" data-level="1">😌 Calm</button>
+                    <button class="stress-btn" data-level="2">😐 Mild</button>
+                    <button class="stress-btn" data-level="3">😤 Moderate</button>
+                    <button class="stress-btn" data-level="4">😡 High</button>
+                    <button class="stress-btn" data-level="5">🤬 Extreme</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breathing Exercise Section -->
+        <section id="breathing" class="section breathing-section">
+            <div class="container">
+                <h2 class="section-title">Breathing Exercises</h2>
+                <div class="breathing-container">
+                    <div class="breathing-circle" id="breathingCircle">
+                        <div class="breathing-text" id="breathingText">Click to Start</div>
+                    </div>
+                    <div class="breathing-controls">
+                        <button id="startBreathing" class="btn-primary">Start Breathing</button>
+                        <button id="stopBreathing" class="btn-secondary">Stop</button>
+                    </div>
+                    <div class="breathing-patterns">
+                        <h3>Choose a Pattern:</h3>
+                        <button class="pattern-btn active" data-pattern="4-7-8">4-7-8 Technique</button>
+                        <button class="pattern-btn" data-pattern="box">Box Breathing</button>
+                        <button class="pattern-btn" data-pattern="simple">Simple Breathing</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Activities Section -->
+        <section id="activities" class="section activities-section">
+            <div class="container">
+                <h2 class="section-title">Stress Relief Activities & Games</h2>
+                <div class="activities-grid">
+                    <!-- Bubble Pop Game -->
+                    <div class="activity-card">
+                        <h3>🫧 Bubble Pop Therapy</h3>
+                        <div class="bubble-container" id="bubbleContainer">
+                            <button id="createBubbles" class="btn-primary">Create Bubbles</button>
+                        </div>
+                    </div>
+
+                    <!-- Anger Punch -->
+                    <div class="activity-card">
+                        <h3>👊 Virtual Punching Bag</h3>
+                        <div class="punch-container">
+                            <div class="punching-bag" id="punchingBag">
+                                <div class="bag-face">😤</div>
+                            </div>
+                            <p class="punch-counter">Punches: <span id="punchCount">0</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Scream Button -->
+                    <div class="activity-card">
+                        <h3>🗣️ Virtual Scream</h3>
+                        <div class="scream-container">
+                            <button id="screamBtn" class="scream-button">SCREAM!</button>
+                            <div class="scream-waves" id="screamWaves"></div>
+                        </div>
+                    </div>
+
+                    <!-- Zen Garden -->
+                    <div class="activity-card">
+                        <h3>🏯 Zen Sand Garden</h3>
+                        <canvas id="zenGarden" class="zen-canvas" width="300" height="200"></canvas>
+                        <button id="clearGarden" class="btn-secondary">Clear Garden</button>
+                    </div>
+
+                    <!-- NEW GAME 1: Stress Ball Squeeze -->
+                    <div class="activity-card">
+                        <h3>⚽ Digital Stress Ball</h3>
+                        <div class="stress-ball-container">
+                            <div class="stress-ball" id="stressBall">
+                                <div class="ball-texture"></div>
+                                <div class="squeeze-indicator" id="squeezeIndicator">0%</div>
+                            </div>
+                            <p class="squeeze-instructions">Click and hold to squeeze!</p>
+                            <p class="squeeze-counter">Squeezes: <span id="squeezeCount">0</span></p>
+                        </div>
+                    </div>
+
+                    <!-- NEW GAME 2: Frustration Destroyer -->
+                    <div class="activity-card">
+                        <h3>💥 Frustration Destroyer</h3>
+                        <div class="destroyer-container">
+                            <div class="destroyer-game" id="destroyerGame">
+                                <div class="target-area" id="targetArea">
+                                    <div class="crosshair" id="crosshair">+</div>
+                                </div>
+                                <button id="startDestroyer" class="btn-primary">Start Destroyer</button>
+                                <p class="destroyer-score">Score: <span id="destroyerScore">0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Journal Section -->
+        <section id="journal" class="section journal-section">
+            <div class="container">
+                <h2 class="section-title">Digital Frustration Journal</h2>
+                <div class="journal-container">
+                    <div class="journal-prompts">
+                        <h3>Guided Prompts:</h3>
+                        <button class="prompt-btn" data-prompt="What's causing your frustration right now?">Current Frustration</button>
+                        <button class="prompt-btn" data-prompt="Write about three things you're grateful for today.">Gratitude Practice</button>
+                        <button class="prompt-btn" data-prompt="Describe how you want to feel instead.">Desired Feeling</button>
+                        <button class="prompt-btn" data-prompt="What's one small step you can take right now?">Action Step</button>
+                    </div>
+                    <div class="journal-input">
+                        <textarea id="journalText" placeholder="Let it all out... write freely here."></textarea>
+                        <div class="journal-actions">
+                            <button id="saveEntry" class="btn-primary">Save Entry</button>
+                            <button id="clearEntry" class="btn-secondary">Clear</button>
+                        </div>
+                    </div>
+                    <div class="saved-entries" id="savedEntries">
+                        <h3>Your Previous Entries:</h3>
+                        <div class="entries-list" id="entriesList"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calming Sounds Section with Real Audio -->
+        <section id="sounds" class="section sounds-section">
+            <div class="container">
+                <h2 class="section-title">Calming Soundscape</h2>
+                <div class="audio-master-controls">
+                    <button id="stopAllSounds" class="btn-secondary">Stop All Sounds</button>
+                    <div class="master-volume">
+                        <label for="masterVolume">Master Volume:</label>
+                        <input type="range" id="masterVolume" min="0" max="100" value="50">
+                        <span id="volumeDisplay">50%</span>
+                    </div>
+                </div>
+                <div class="sounds-grid">
+                    <div class="sound-card" data-sound="rain">
+                        <div class="sound-icon">🌧️</div>
+                        <h3>Rain Sounds</h3>
+                        <button class="sound-toggle">Play</button>
+                        <div class="sound-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <audio loop preload="metadata">
+                            <source src="#" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="sound-card" data-sound="ocean">
+                        <div class="sound-icon">🌊</div>
+                        <h3>Ocean Waves</h3>
+                        <button class="sound-toggle">Play</button>
+                        <div class="sound-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <audio loop preload="metadata">
+                            <source src="#" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="sound-card" data-sound="forest">
+                        <div class="sound-icon">🌲</div>
+                        <h3>Forest Sounds</h3>
+                        <button class="sound-toggle">Play</button>
+                        <div class="sound-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <audio loop preload="metadata">
+                            <source src="#" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="sound-card" data-sound="fire">
+                        <div class="sound-icon">🔥</div>
+                        <h3>Crackling Fire</h3>
+                        <button class="sound-toggle">Play</button>
+                        <div class="sound-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <audio loop preload="metadata">
+                            <source src="#" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="sound-card" data-sound="birds">
+                        <div class="sound-icon">🐦</div>
+                        <h3>Bird Songs</h3>
+                        <button class="sound-toggle">Play</button>
+                        <div class="sound-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <audio loop preload="metadata">
+                            <source src="#" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="sound-card" data-sound="meditation">
+                        <div class="sound-icon">🧘</div>
+                        <h3>Meditation Bell</h3>
+                        <button class="sound-toggle">Play</button>
+                        <div class="sound-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <audio loop preload="metadata">
+                            <source src="#" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Tracking -->
+        <section class="section progress-section">
+            <div class="container">
+                <h2 class="section-title">Your Wellness Progress</h2>
+                <div class="progress-dashboard">
+                    <div class="stat-card">
+                        <h3>Sessions Today</h3>
+                        <div class="stat-number" id="dailySessions">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Deep Breaths</h3>
+                        <div class="stat-number" id="totalBreaths">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Journal Entries</h3>
+                        <div class="stat-number" id="totalEntries">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Stress Level</h3>
+                        <div class="stat-number" id="currentStress">😌</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Games Played</h3>
+                        <div class="stat-number" id="gamesPlayed">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Audio Time</h3>
+                        <div class="stat-number" id="audioTime">0m</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 FrustrateFree (F2). Your mental wellness matters. 💚</p>
+            <p><em>Take care of yourself - you deserve peace and calm.</em></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
